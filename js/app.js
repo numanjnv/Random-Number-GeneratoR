@@ -57,15 +57,9 @@ function deleteTask(event) {
   const taskItem = event.target.parentNode;
   taskList.removeChild(taskItem);
 }
-
-// Function to mark a task as completed
-taskList.addEventListener('change', function (event) {
-  const checkbox = event.target;
-  const taskItem = checkbox.parentNode;
-
-  if (checkbox.checked) {
-    taskItem.classList.add('completed');
-  } else {
-    taskItem.classList.remove('completed');
-  }
-});
+const questions = 
+    {
+        question: 'What is the capital of France?',
+        choices: ['Berlin', 'Madrid', 'Paris', 'Rome'],
+        correctAnswer: 'Paris'
+    },
