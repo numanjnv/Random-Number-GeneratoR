@@ -10,3 +10,62 @@ function generateRandomNumber() {
     const randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
     document.getElementById('randomNumber').innerText = `Random Number: ${randomNumber}`;
 }
+
+
+// Just codes
+
+// HTML elements
+const inputTask = document.getElementById('task');
+const addButton = document.getElementById('add');
+const taskList = document.getElementById('taskList');
+
+// Event listener for adding a task
+addButton.addEventListener('click', addTask);
+
+// Function to add a task
+function addTask() {
+  const taskText = inputTask.value.trim();
+
+  if (taskText !== '') {
+    const taskItem = createTaskElement(taskText);
+    taskList.appendChild(taskItem);
+    inputTask.value = '';
+  }
+}
+
+// Function to create a task element
+function createTaskElement(taskText) {
+  const taskItem = document.createElement('li');
+  const taskCheckbox = document.createElement('input');
+  const taskTextElement = document.createElement('span');
+  const deleteButton = document.createElement('button');
+
+  taskCheckbox.type = 'checkbox';
+  taskTextElement.textContent = taskText;
+  deleteButton.textContent = 'Delete';
+  deleteButton.addEventListener('click', deleteTask);
+
+  taskItem.appendChild(taskCheckbox);
+  taskItem.appendChild(taskTextElement);
+  taskItem.appendChild(deleteButton);
+
+  return taskItem;
+}
+
+// Function to delete a task
+function deleteTask(event) {
+  const taskItem = event.target.parentNode;
+  taskList.removeChild(taskItem);
+}
+
+// Function to mark a task as completed
+taskList.addEventListener('change', function (event) {
+  const checkbox = event.target;
+  const taskItem = checkbox.parentNode;
+
+  if (checkbox.checked) {
+    taskItem.classList.add('completed');
+  } else {
+    taskItem.classList.remove('completed');
+  }
+});
