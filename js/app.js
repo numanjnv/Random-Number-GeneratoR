@@ -63,3 +63,8 @@ const questions =
         choices: ['Berlin', 'Madrid', 'Paris', 'Rome'],
         correctAnswer: 'Paris'
     },
+    {
+        question: 'Which programming language is often used for web development?',
+        choices: ['Java', 'Python', 'JavaScript', 'C++'],
+        correctAnswer: 'JavaScript'
+    },
